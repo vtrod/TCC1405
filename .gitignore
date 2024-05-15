@@ -1,0 +1,30 @@
+# Dependências do Node.js
+/node_modules
+
+# Arquivos de cache do npm (geralmente não são necessários no repositório)
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Dependências específicas do gerenciador de pacotes (npm ou yarn)
+package-lock.json  # Para projetos npm
+
+# Dependências específicas do Metro Bundler (React Native)
+/.metro-cache
+
+# Arquivos de build e artefatos de compilação
+android/build
+ios/build
+*.apk
+*.aab
+*.ipa
+
+# Arquivos de configuração específicos do desenvolvimento local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Outros arquivos e diretórios gerados automaticamente
+.DS_Store
+*.log
