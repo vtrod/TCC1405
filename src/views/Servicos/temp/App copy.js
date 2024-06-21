@@ -10,7 +10,6 @@ import EsqueciSenhaScreen from './src/views/Servicos/EsqueciSenhaScreen';
 import TreinoScreen from './src/views/Servicos/TreinoScreen';
 import UserScreen from './src/views/Servicos/UserScreen';
 import Cadastro from './src/views/cadastro';
-import DashboardScreen from './src/views/Servicos/DashboardScreen';
 
 
 const Stack = createStackNavigator();
@@ -27,7 +26,6 @@ const AppNavigator = () => {
         <Stack.Screen name="TreinoScreen" component={TreinoScreen} />
         <Stack.Screen name="UserScreen" component={UserScreen} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
-        <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

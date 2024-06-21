@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Picker } from '@react-native-picker/picker'; 
 import axios from 'axios'; 
 import { auth } from '../../config/firebase';
 import Icon from 'react-native-vector-icons/Feather';
 import { signOut } from 'firebase/auth';
 import { TOKEN_OPENAI } from "@env";
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import TreinoScreen from './TreinoScreen';
+import AlunosScreen from './AlunoScreen';
 
 
 const Drawer = createDrawerNavigator();
@@ -14,10 +17,12 @@ const Drawer = createDrawerNavigator();
 const UserScreen = () => {
   return (
     <Drawer.Navigator initialRouteName="UserScreen">
-      <Drawer.Screen name="HIPERTROF.IA" component={UserScreenContent} />
+      <Drawer.Screen name="Gerar treino" component={UserScreenContent} />
+      <Drawer.Screen name="Alunos" component={AlunosScreen} />
     </Drawer.Navigator>
   );
 };
+
 
 const UserScreenContent = ({ navigation }) => {
   const usuario = auth.currentUser;
@@ -133,11 +138,11 @@ const UserScreenContent = ({ navigation }) => {
                     },
                     {
                         role: 'system',
-                        content: 'gere o treino para cada dia da semana no formato json ({segunda-feira:},{terça-feira:}...) organizando a semana de acordo com a quantidade de dias que o usuário irá treinar, e nos que ele não treinar, especifique: ',
+                        content: 'gere o treino para cada dia da semana no formato json ({segunda-feira:{treino (true se o usuário treinar no dia ou false se for dia de descanso), nome do grupamento{exercicio, qtdSeries, repeticoes, tempoDescanso}}},{terça-feira: ...) organizando a semana de acordo com a quantidade de dias que o usuário irá treinar, e nos que ele não treinar, especifique: ',
                     },
                 ],
                 max_tokens: 2048,
-                temperature: 0.1
+                temperature: 0.2
             }, {
               headers: {
                 Authorization: `Bearer ${token}` // Inclui o token de autenticação no cabeçalho de autorização
@@ -203,9 +208,6 @@ axios.post('http://192.168.0.109:3001/treino', data)
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
         <View style={styles.header}>
-          {/* Ícone de menu */}
-          <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          </TouchableOpacity>
           <Text style={styles.headerText}>Preencha o formulário abaixo:</Text>
         </View>
         <View style={styles.inputsContainer}>
