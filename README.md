@@ -16,7 +16,7 @@ Este é um projeto de **TCC** que utiliza **React Native** para desenvolver um a
 ### 1️⃣ Pré-requisitos
 Certifique-se de ter instalado:
 - Node.js
-- Expo CLI (`npm install -g expo-cli`)
+- Expo
 - Conta na OpenAI para obter a API Key
 
 ### 2️⃣ Clone o repositório
