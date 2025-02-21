@@ -21,7 +21,7 @@ Certifique-se de ter instalado:
 
 ### 2️⃣ Clone o repositório
 ```sh
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/vtrod/hipertrofia-frontend
 cd seu-repositorio
 ```
 
@@ -35,7 +35,7 @@ yarn install
 ### 4️⃣ Configure a API Key
 Crie um arquivo **.env** na raiz do projeto e adicione:
 ```env
-OPENAI_API_KEY=sua-chave-aqui
+TOKEN_OPENAI=sua-chave-aqui
 ```
 
 ### 5️⃣ Execute o projeto
